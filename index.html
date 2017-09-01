@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pipedrive test task</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
+    <link rel="stylesheet" href="styles.css">
+
+  </head>
+  <body>
+    <!-- navbar -->
+      <div class="container-fluid">
+        <nav class="navbar navbar-default">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#"><img class="img-responsive" src="images/pipedrive-white-logo 2.png" alt="Pipedrive" height="50">
+              </a>
+            </div>
+            <div id="navbar1" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="#"><span class="glyphicon glyphicon-indent-left"></span>Deals</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-calendar"></span>Activities</a></li>
+                <li><a id="menu-toggle" href="#"><span class="glyphicon glyphicon-user toggle"></span></a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-th-large"></span></a></li>
+
+              </ul>
+              <div class="nav navbar-nav navbar-right">
+                <li class="ropdown pull-right">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    <img id="profile" class="" src="images/achmed-s.png" alt="profile picture" height="30">Kasutaja <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+              </div>
+            </div>
+          <!--/.nav-collapse -->
+        </nav>
+        </div>
+        <!-- Sidebar with usernames-->
+        <div id="wrapper">
+            <div id="sidebar-wrapper">
+                <nav id="spy">
+                    <ul class="sidebar-nav nav" id="users">
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <script type="text/template" id="users_template">
+        <% _.each(users, function(user){ %>
+          <li>
+              <a href="#" value="/users/<%= user.id %>">
+                <%= user.get("name") %>
+              </a>
+          </li>
+        <% }) %>
+        </script>
+
+        <!-- Persons fields main area content -->
+        <div class="container" id="person-fields"></div>
+          <script type="text/template" id="person_template">
+            <table class="table">
+              <thead>
+                <% _.each(personFields, function(personField){ %>
+                <tr>
+                  <th><%= personField.get("name") %></th>
+                  <th>Deals</th>
+                </tr>
+              </thead>
+              <tbody class="col-sm-8">
+                <tr>
+                  <td>Phone <%= personField.get("phone") %></td>
+                </tr>
+                <tr>
+                  <td>E-mail <%= personField.get("email") %></td>
+                </tr>
+                <tr>
+                  <td>Added <%= personField.get("added") %></td>
+                </tr>
+                <tr>
+                  <td>Open deals <%= personField.get("open deals") %></td>
+                </tr>
+                <tr>
+                  <td>Next activity <%= personField.get("next activity") %></td>
+                </tr>
+                <tr>
+                  <td>Last activity <%= personField.get("last activity") %></td>
+                </tr>
+                <% }) %>
+              </tbody>
+              <tbody class="col-sm-4">
+                <tr>
+                  <th>Title</th>
+                  <th>Sum</th>
+                </tr>
+                <tr>
+                  <td>deal id</td>
+                  <td>deal cost</td>
+                </tr>
+              </tbody>
+            </table>
+          </script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="underscore-min.js" charset="utf-8"></script>
+    <script src="backbone-min.js" charset="utf-8"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="config.js" charset="utf-8"></script>
+    <script src="script.js" charset="utf-8"></script>
+  </body>
+</html>
